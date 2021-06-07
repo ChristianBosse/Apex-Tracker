@@ -4,11 +4,10 @@ import Header from "./Header";
 
 const MainPage = () => {
   return (
-    <div>
-      Hello from MainPage
+    <>
       <Header />
       <Footer />
-    </div>
+    </>
   );
 };
 
