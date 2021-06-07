@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 html,
 body,
@@ -89,4 +89,11 @@ video {
   font: inherit;
   vertical-align: baseline;
   font-family: "Odibee Sans", cursive;
+  overflow-x: inherit;
+}
+
+.stickyHeader {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }

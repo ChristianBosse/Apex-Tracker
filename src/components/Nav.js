@@ -1,17 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import "../CSS/index.css";
+
 const Nav = () => {
   return (
-    <Wrapper>
-      <Home>HOME</Home>
-      <PlayerSearch>PLAYER LOOKUP</PlayerSearch>
-      <Randomizer>RANDOMIZER</Randomizer>
+    <Wrapper className="stickyHeader">
+      <div>
+        <Home>HOME</Home>
+        <PlayerSearch>PLAYER LOOKUP</PlayerSearch>
+        <Randomizer>RANDOMIZER</Randomizer>
+      </div>
       <About>ABOUT</About>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  position: sticky;
   height: 45px;
   width: 100vw;
   background-color: black;
