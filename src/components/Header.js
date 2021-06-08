@@ -8,7 +8,7 @@ const Header = () => {
 
   const openModal = () => {
     setShowModal((prev) => !prev);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflowY = "clip";
   };
   const linkedInBtn = () => {
     window.location.href = "https://www.linkedin.com/in/christianbosse-/";

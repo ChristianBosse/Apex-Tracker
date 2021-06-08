@@ -16,7 +16,7 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 4;
+  z-index: 3;
 `;
 
 const ModalWrapper = styled.div`
@@ -27,7 +27,7 @@ const ModalWrapper = styled.div`
   color: #fff;
   display: grid;
   position: relative;
-  z-index: 10;
+  z-index: 1;
   border-radius: 20px;
 `;
 
@@ -73,7 +73,7 @@ const InfoModal = ({ showModal, setShowModal }) => {
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
       setShowModal(false);
-      document.body.style.overflow = "unset";
+      document.body.style.overflowY = "unset";
     }
   };
 
@@ -85,8 +85,8 @@ const InfoModal = ({ showModal, setShowModal }) => {
             <ModalWrapper showModal={showModal}>
               <ModalContent>
                 <p>
-                  This website has been designed by Christian Bosse using React,
-                  Node, JavaScript.
+                  This full-stack application was designed and built by
+                  Christian Bosse using React, Node, Mongo & Express.
                 </p>
                 <p>
                   This website is open to anyone who wishes to use it,
@@ -100,7 +100,7 @@ const InfoModal = ({ showModal, setShowModal }) => {
                 onClick={() =>
                   setShowModal(
                     (prev) => !prev,
-                    (document.body.style.overflow = "unset")
+                    (document.body.style.overflowY = "unset")
                   )
                 }
               />
