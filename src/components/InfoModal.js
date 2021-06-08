@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
+import EmailContact from "./EmailContact";
 
 const Background = styled.div`
   width: 100%;
@@ -43,15 +44,6 @@ const ModalContent = styled.div`
     font-family: "Roboto", sans-serif;
     font-weight: bolder;
     margin: 0px 15px;
-  }
-
-  button {
-    padding: 10px 24px;
-    background: #090909;
-    color: #505050;
-    border: none;
-    border-radius: 7px;
-    font-family: "Roboto", sans-serif;
   }
 `;
 
@@ -100,7 +92,7 @@ const InfoModal = ({ showModal, setShowModal }) => {
                   documentation can be found on my GitHub
                 </p>
                 <p>You can contact me on LinkedIn or via the form below!</p>
-                <button>Send</button>
+                <EmailContact />
               </ModalContent>
               <CloseBtn
                 aria-label="Close modal"
