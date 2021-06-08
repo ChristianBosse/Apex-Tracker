@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  z-index: 0;
+  z-index: 3;
 `;
 
 const Home = styled.a`
