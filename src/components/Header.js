@@ -3,6 +3,10 @@ import Nav from "./Nav";
 import styled from "styled-components";
 
 const Header = () => {
+  const linkedInBtn = () => {
+    window.location.href = "https://www.linkedin.com/in/christianbosse-/";
+  };
+
   return (
     <>
       <Wrapper>
@@ -16,7 +20,12 @@ const Header = () => {
             d="M9.5 14c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"
           ></path>
         </QuestionMark>
-        <LinkedIn x="0px" y="0px" viewBox="0 0 260.366 260.366">
+        <LinkedIn
+          x="0px"
+          y="0px"
+          viewBox="0 0 260.366 260.366"
+          onClick={linkedInBtn}
+        >
           <path
             d="M34.703,0.183C15.582,0.183,0.014,15.748,0,34.884C0,54.02,15.568,69.588,34.703,69.588
 		c19.128,0,34.688-15.568,34.688-34.704C69.391,15.75,53.83,0.183,34.703,0.183z"

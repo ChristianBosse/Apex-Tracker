@@ -4,18 +4,28 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <Wrapper>
-      <Copyright>
-        2021 @{" "}
-        <Link href="https://www.linkedin.com/in/christianbosse-/">
-          Christian Bosse
-        </Link>
-      </Copyright>
-      <Linkedin href="https://www.linkedin.com/in/christianbosse-/">
-        My LinkedIn
-      </Linkedin>
-      <About>About</About>
-      <DevAPI href="https://tracker.gg/developers">Tracker API</DevAPI>
-      <GitHub href="https://github.com/ChristianBosse">GitHub Source</GitHub>
+      <div>
+        <Copyright>
+          2021 @{" "}
+          <Link href="https://www.linkedin.com/in/christianbosse-/">
+            Christian Bosse
+          </Link>
+        </Copyright>
+      </div>
+      <div>
+        <Linkedin href="https://www.linkedin.com/in/christianbosse-/">
+          My LinkedIn
+        </Linkedin>
+      </div>
+      <div>
+        <About>About</About>
+      </div>
+      <div>
+        <DevAPI href="https://tracker.gg/developers">Tracker API</DevAPI>
+      </div>
+      <div>
+        <GitHub href="https://github.com/ChristianBosse">GitHub Source</GitHub>
+      </div>
     </Wrapper>
   );
 };

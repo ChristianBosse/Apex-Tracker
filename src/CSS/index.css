@@ -90,6 +90,7 @@ video {
   vertical-align: baseline;
   font-family: "Odibee Sans", cursive;
   overflow-x: inherit;
+  text-decoration: none;
 }
 
 .stickyHeader {
