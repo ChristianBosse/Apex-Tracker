@@ -1,25 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import emailjs from "emailjs-com";
+import succesCheckmark from "../Media/checkmark.svg";
 
 const EmailContact = () => {
+  const userID = process.env.REACT_APP_EMAILJS_API_KEY;
+
+  const [deliverSuccess, setDeliverSuccess] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm("gmail", "template_ogdg209", e.target, userID).then(
+      (result) => {
+        console.log(result.text);
+        setDeliverSuccess(true);
+      },
+      (error) => {
+        console.log(error.text);
+        setDeliverSuccess(false);
+      }
+    );
+  };
+
   return (
     <Wrapper>
-      <Form>
-        <Name type="text" placeholder="Name" name="name" />
-        <Email type="email" placeholder="Email Address" name="email" />
-        <Subject type="text" placeholder="Subject" name="subject" />
+      <Form
+        onSubmit={sendEmail}
+        style={{ display: deliverSuccess === true ? "none" : "flex" }}
+      >
+        <Name type="text" placeholder="Name" name="name" required />
+        <Email type="email" placeholder="Email Address" name="email" required />
+        <Subject type="text" placeholder="Subject" name="subject" required />
         <Text
           id=""
           cols="30"
           rows="8"
           placeholder="Your message"
           name="message"
+          required
         ></Text>
         <BtnWrapper>
           <SendBtn type="submit" value="Send Message"></SendBtn>
           <ClearBtn type="reset"></ClearBtn>
         </BtnWrapper>
       </Form>
+      <Success style={{ display: deliverSuccess === true ? "flex" : "hidden" }}>
+        <SuccessImg src={succesCheckmark} />
+        <p>Your email was sent succesfully</p>
+      </Success>
     </Wrapper>
   );
 };
@@ -116,6 +145,18 @@ const ClearBtn = styled.input`
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const Success = styled.div`
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+`;
+
+const SuccessImg = styled.img`
+  height: 50px;
+  margin-bottom: 20px;
 `;
 
 export default EmailContact;

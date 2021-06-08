@@ -27,7 +27,7 @@ const ModalWrapper = styled.div`
   display: grid;
   position: relative;
   z-index: 10;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 const ModalContent = styled.div`
