@@ -31,7 +31,6 @@ const Nav = () => {
 };
 
 const Wrapper = styled.div`
-  position: sticky;
   height: 45px;
   width: 100vw;
   background-color: black;
@@ -39,6 +38,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 0;
 `;
 
 const Home = styled.a`
