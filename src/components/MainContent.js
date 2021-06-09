@@ -115,7 +115,8 @@ const ViewMeta = styled.button`
   border-radius: 10px;
   border: none;
   font-size: 20px;
-  background-color: rgba(255, 15, 30, 1);
+  background-color: #9e1a1a;
+  color: white;
   font-family: "roboto";
   &:focus {
     border: none;
