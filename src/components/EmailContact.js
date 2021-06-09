@@ -75,7 +75,7 @@ const Form = styled.form`
 const Name = styled.input`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #202020;
+  background-color: #303030;
   border: none;
   border-radius: 5px;
   color: grey;
@@ -87,7 +87,7 @@ const Name = styled.input`
 const Email = styled.input`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #202020;
+  background-color: #303030;
   border: none;
   border-radius: 5px;
   color: grey;
@@ -99,7 +99,7 @@ const Email = styled.input`
 const Subject = styled.input`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #202020;
+  background-color: #303030;
   border: none;
   border-radius: 5px;
   color: grey;
@@ -111,7 +111,7 @@ const Subject = styled.input`
 const Text = styled.textarea`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #202020;
+  background-color: #303030;
   border: none;
   border-radius: 5px;
   color: grey;
@@ -124,7 +124,7 @@ const SendBtn = styled.input`
   width: 200px;
   margin-top: 10px;
   padding: 10px 10px;
-  background: #090909;
+  background: #121212;
   color: #505050;
   border: none;
   border-radius: 7px;
@@ -135,7 +135,7 @@ const ClearBtn = styled.input`
   width: 200px;
   margin-top: 10px;
   padding: 10px 10px;
-  background: #090909;
+  background: #121212;
   color: #505050;
   border: none;
   border-radius: 7px;
