@@ -9,7 +9,6 @@ import bloodhound from "../Media/bloodhound.png";
 const MainContent = () => {
   return (
     <Wrapper>
-      <ImageFilter />
       <Image src={bg} alt="Kings Cayon" />
       <LegendMeta>
         <TopLegend>
@@ -53,23 +52,17 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   display: block;
-  width: 100vw;
+  min-width: 99.99%;
+  max-width: 99.99%;
   height: 500px;
   object-fit: cover;
   z-index: 1;
-`;
-
-const ImageFilter = styled.div`
-  width: 100vw;
-  height: 500px;
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  z-index: 2;
+  filter: brightness(0.6);
 `;
 
 const LegendMeta = styled.div`
   bottom: 0px;
-  width: 100vw;
+  max-width: 100vw;
   height: 450px;
   background: linear-gradient(to right, #541010, #a81b1b);
 `;

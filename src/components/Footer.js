@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 75px;
-  width: 100vw;
+  max-width: 100vw;
   background-color: #161616;
 `;
 

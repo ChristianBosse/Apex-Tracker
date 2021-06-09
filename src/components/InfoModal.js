@@ -85,7 +85,7 @@ const InfoModal = ({ showModal, setShowModal }) => {
             <ModalWrapper showModal={showModal}>
               <ModalContent>
                 <p>
-                  This full-stack application was designed and built by
+                  This Full-stack application was designed and built by
                   Christian Bosse using React, Node, Mongo & Express.
                 </p>
                 <p>

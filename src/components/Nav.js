@@ -1,38 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import "../CSS/index.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
     <Wrapper className="stickyHeader">
-      <div>
-        <Link to="/">
-          <Home>HOME</Home>
-        </Link>
-      </div>
-      <div>
-        <Link to="/playersearch">
-          <PlayerSearch>PLAYER LOOKUP</PlayerSearch>
-        </Link>
-      </div>
-      <div>
-        <Link to="/randomizer">
-          <Randomizer>RANDOMIZER</Randomizer>
-        </Link>
-      </div>
-      <div>
-        <Link to="/about">
-          <About>ABOUT</About>
-        </Link>
-      </div>
+      <Home exact to="/">
+        HOME
+      </Home>
+      <PlayerSearch exact to="/playersearch">
+        PLAYER LOOKUP
+      </PlayerSearch>
+      <Randomizer exact to="/randomizer">
+        RANDOMIZER
+      </Randomizer>
+      <About exact to="/about">
+        ABOUT
+      </About>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   height: 45px;
-  width: 100vw;
+  max-width: 100vw;
   background-color: black;
   color: white;
   display: flex;
@@ -41,38 +33,50 @@ const Wrapper = styled.div`
   z-index: 3;
 `;
 
-const Home = styled.a`
+const Home = styled(NavLink)`
   color: white;
   font-size: 22px;
   margin: 0px 20px;
   &:hover {
     color: #da292a;
   }
+  &.active {
+    color: #da292a;
+  }
 `;
 
-const PlayerSearch = styled.a`
+const PlayerSearch = styled(NavLink)`
   color: white;
   font-size: 22px;
   margin: 0px 20px;
   &:hover {
     color: #da292a;
   }
+  &.active {
+    color: #da292a;
+  }
 `;
 
-const Randomizer = styled.a`
+const Randomizer = styled(NavLink)`
   color: white;
   font-size: 22px;
   margin: 0px 20px;
   &:hover {
     color: #da292a;
   }
+  &.active {
+    color: #da292a;
+  }
 `;
 
-const About = styled.a`
+const About = styled(NavLink)`
   color: white;
   font-size: 22px;
   margin: 0px 20px;
   &:hover {
+    color: #da292a;
+  }
+  &.active {
     color: #da292a;
   }
 `;

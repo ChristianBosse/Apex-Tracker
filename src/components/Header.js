@@ -65,7 +65,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   height: 40px;
-  width: 100vw;
+  max-width: 100vw;
   background-color: #161616;
 `;
 
