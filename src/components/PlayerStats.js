@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const PlayerStats = () => {
-  const [playerData, setPlayerData] = useState();
+  const [playerData, setPlayerData] = useState([]);
 
   useEffect(() => {
     fetch(`/api/v2/profile/origin/Limenage`, {
@@ -14,11 +14,16 @@ const PlayerStats = () => {
       .then((data) => setPlayerData(data.data));
   }, []);
 
-  console.log(playerData);
+  const {
+    platformInfo: { avatarUrl, platformSlug, platformUserId },
+    userInfo: { pageviews },
+  } = playerData;
+
+  console.log("Avatar", avatarUrl, platformSlug, platformUserId);
 
   return (
     <>
-      <div>{playerData}</div>
+      <img src={avatarUrl} />
     </>
   );
 };

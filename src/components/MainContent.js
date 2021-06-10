@@ -14,7 +14,9 @@ const MainContent = () => {
         <MetaText>Legend Meta</MetaText>
         <MetaDesc>
           The Legend Meta Data is sampled from
-          <MetaDesc>all tracked player, and is updated every monday.</MetaDesc>
+          <MetaDescTwo>
+            all tracked player, and is updated every monday.
+          </MetaDescTwo>
         </MetaDesc>
         <ViewMeta>View All Legends</ViewMeta>
       </MetaWrapper>
@@ -65,6 +67,14 @@ const MetaText = styled.p`
   font-size: 35px;
   margin-bottom: 20px;
   font-family: "roboto";
+`;
+
+const MetaDescTwo = styled.span`
+  color: white;
+  font-size: 20px;
+  font-family: "roboto";
+  margin-bottom: 20px;
+  display: block;
 `;
 
 const MetaDesc = styled.p`
