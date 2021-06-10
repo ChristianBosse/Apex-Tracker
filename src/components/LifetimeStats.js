@@ -7,22 +7,46 @@ const LifetimeStats = () => {
 
   const { segments } = playerData;
 
+  console.log(playerData);
+
+  const matches = () => {
+    if (segments[0].stats.matchesPlayed.displayValue !== undefined) {
+      return `${segments[0].stats.matchesPlayed.displayValue} Matches.`;
+    } else {
+      return "No Matches Data.";
+    }
+  };
+
   return (
     <Wrapper>
       <Lifetime>
         <LifetimeOverview>
           <LifetimeText>Lifetime Overview</LifetimeText>
-          <Matches>
-            {segments[0].stats.matchesPlayed.displayValue} Matches
-          </Matches>
+          <Matches>{matches}</Matches>
           <Rank>
-            <RankPic src={segments[0].stats.rankScore.metadata.iconUrl} />
-            <RankName>{segments[0].stats.rankScore.metadata.rankName}</RankName>
-            <RankScore>{segments[0].stats.rankScore.displayName}:</RankScore>
-            <RankRP>{segments[0].stats.rankScore.displayValue}</RankRP>
+            <RankWrapper>
+              <RankPic src={segments[0].stats.rankScore.metadata.iconUrl} />
+              <RankName>
+                {segments[0].stats.rankScore.metadata.rankName}
+              </RankName>
+            </RankWrapper>
+            <RpWrapper>
+              <RankScore>{segments[0].stats.rankScore.displayName}:</RankScore>
+              <RankRP>{segments[0].stats.rankScore.displayValue}</RankRP>
+            </RpWrapper>
           </Rank>
-          <Level></Level>
-          <TotalKills></TotalKills>
+          <LevelWrapper>
+            <LevelText>{segments[0].stats.level.displayName}:</LevelText>
+            <Level>{segments[0].stats.level.displayValue}</Level>
+          </LevelWrapper>
+          <KillWrapper>
+            <KillText>{segments[0].stats.kills.displayName}</KillText>
+            <TotalKills>{segments[0].stats.kills.displayValue}</TotalKills>
+          </KillWrapper>
+          <DamageWrapper>
+            <DamageText>{segments[0].stats.damage.displayName}</DamageText>
+            <AllDamage>{segments[0].stats.damage.displayValue}</AllDamage>
+          </DamageWrapper>
         </LifetimeOverview>
       </Lifetime>
     </Wrapper>
@@ -30,6 +54,96 @@ const LifetimeStats = () => {
 };
 
 const Wrapper = styled.div``;
+
+const LevelText = styled.p`
+  color: white;
+  font-family: "roboto";
+`;
+
+const DamageText = styled.p`
+  color: white;
+  font-family: "roboto";
+`;
+
+const DamageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -264px;
+  height: 60px;
+  width: 130px;
+  left: 740px;
+  background-color: #222222;
+  border-radius: 9px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+`;
+
+const KillWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -204px;
+  height: 60px;
+  width: 130px;
+  left: 550px;
+  background-color: #222222;
+  border-radius: 9px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+`;
+
+const KillText = styled.p`
+  color: white;
+  font-family: "roboto";
+`;
+
+const LevelWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -145px;
+  height: 60px;
+  width: 130px;
+  left: 350px;
+  background-color: #222222;
+  border-radius: 9px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+`;
+
+const AllDamage = styled.p`
+  color: white;
+  font-family: "roboto";
+`;
+
+const RankWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 50px;
+  width: 140px;
+`;
+
+const RpWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -55px;
+  height: 60px;
+  width: 130px;
+  left: 150px;
+  background-color: #222222;
+  border-radius: 9px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+`;
 
 const LifetimeText = styled.p`
   color: white;
@@ -68,46 +182,41 @@ const Matches = styled.p`
 `;
 
 const Rank = styled.div`
-  height: 300px;
+  height: 250px;
   width: 900px;
   background-color: #303030;
   position: relative;
   top: 21px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
-const RankPic = styled.img`
-  position: relative;
-  top: 80px;
-  left: 10px;
-`;
+const RankPic = styled.img``;
 
 const RankName = styled.p`
   color: white;
   font-family: "roboto";
-  position: relative;
-  left: 140px;
-  top: -20px;
 `;
 
 const RankScore = styled.p`
   color: white;
   font-family: "roboto";
-  position: relative;
-  left: 140px;
-  top: -10px;
 `;
 
 const RankRP = styled.p`
   color: white;
   font-family: "roboto";
-  position: relative;
-  left: 158px;
-  top: -5px;
 `;
 
-const Level = styled.p``;
+const Level = styled.p`
+  color: white;
+  font-family: "roboto";
+`;
 
-const TotalKills = styled.p``;
+const TotalKills = styled.p`
+  color: white;
+  font-family: "roboto";
+`;
 
 export default LifetimeStats;

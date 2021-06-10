@@ -23,7 +23,7 @@ const Platform = styled.p`
   font-family: "roboto";
   position: absolute;
   top: 645px;
-  left: 55vw;
+  left: 54vw;
 `;
 
 const Views = styled.p`
