@@ -1,23 +1,48 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import originLogo from "../Media/originlogo.svg";
 import playstationLogo from "../Media/PlayStationlogo.svg";
 import xboxLogo from "../Media/Xboxlogo.svg";
 import bg from "../Media/bg.png";
 import apexLogo from "../Media/apexlogo.svg";
+import { PlayerContext } from "./PlayerContext";
+import { useHistory } from "react-router-dom";
 
 const Search = () => {
-  const [platform, setPlatform] = useState("Enter Origin Username");
+  const { setPlatform, setUsername, username } = useContext(PlayerContext);
+
+  const [platformText, setPlatformText] = useState("Enter Origin Username");
 
   const originPlatform = () => {
-    setPlatform("Enter Origin Username");
+    setPlatformText("Enter Origin Username");
+    setPlatform("origin");
   };
   const psPlatform = () => {
-    setPlatform("Enter Playstation Username");
+    setPlatformText("Enter Playstation Username");
+    setPlatform("psn");
   };
   const xboxPlatform = () => {
-    setPlatform("Enter Xbox Username");
+    setPlatformText("Enter Xbox Username");
+    setPlatform("xbox");
   };
+  const history = useHistory();
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.code === "Enter") {
+        if (username.length > 0) {
+          console.log("Enter Pressed", username.length);
+          e.preventDefault();
+          history.push("/playersearch");
+        }
+      }
+    };
+
+    window.addEventListener("keydown", listener);
+    return () => {
+      window.removeEventListener("keydown", listener);
+    };
+  }, [username]);
+
   return (
     <Wrapper>
       <Image src={bg} alt="Kings Cayon" />
@@ -38,7 +63,11 @@ const Search = () => {
         <Xbox onClick={xboxPlatform}>
           <Logo src={xboxLogo} />
         </Xbox>
-        <PlayerSearch type="text" placeholder={platform}></PlayerSearch>
+        <PlayerSearch
+          onChange={(e) => setUsername(e.target.value)}
+          type="text"
+          placeholder={platformText}
+        ></PlayerSearch>
       </SearchWrapper>
     </Wrapper>
   );

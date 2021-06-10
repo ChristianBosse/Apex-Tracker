@@ -6,27 +6,30 @@ import "../CSS/index.css";
 import StatPage from "./StatPage";
 import RandomizerPage from "./RandomizerPage";
 import AboutPage from "./AboutPage";
+import { PlayerContextProvider } from "./PlayerContext";
 
 const App = () => {
   return (
-    <Router>
-      <Main>
-        <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-          <Route exact path="/playersearch">
-            <StatPage />
-          </Route>
-          <Route exact path="/randomizer">
-            <RandomizerPage />
-          </Route>
-          <Route exact path="/about">
-            <AboutPage />
-          </Route>
-        </Switch>
-      </Main>
-    </Router>
+    <PlayerContextProvider>
+      <Router>
+        <Main>
+          <Switch>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
+            <Route exact path="/playersearch">
+              <StatPage />
+            </Route>
+            <Route exact path="/randomizer">
+              <RandomizerPage />
+            </Route>
+            <Route exact path="/about">
+              <AboutPage />
+            </Route>
+          </Switch>
+        </Main>
+      </Router>
+    </PlayerContextProvider>
   );
 };
 

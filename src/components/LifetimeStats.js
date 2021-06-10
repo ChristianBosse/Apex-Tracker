@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { PlayerContext } from "./PlayerContext";
 
-const LifetimeStats = ({ segments }) => {
-  console.log("Lifetime", segments);
+const LifetimeStats = () => {
+  const { playerData } = useContext(PlayerContext);
+
+  const { segments } = playerData;
 
   return (
     <Wrapper>
-      {/* <Lifetime>
+      <Lifetime>
         <LifetimeOverview>
           <LifetimeText>Lifetime Overview</LifetimeText>
           <Matches>
@@ -21,7 +24,7 @@ const LifetimeStats = ({ segments }) => {
           <Level></Level>
           <TotalKills></TotalKills>
         </LifetimeOverview>
-      </Lifetime> */}
+      </Lifetime>
     </Wrapper>
   );
 };
