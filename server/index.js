@@ -3,7 +3,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
-const { getPlayerProfile } = require("./handler");
+const {
+  getPlayerProfile,
+  RandomLegend,
+  RandomGunOne,
+  RandomGunTwo,
+} = require("./handler");
 
 //Load the config.env file to use API and URL
 dotenv.config({ path: "./config.env" });
@@ -21,6 +26,12 @@ const PORT = 4000;
 //Endpoint down below which are located into the handler.js file.
 
 app.get("/api/v2/profile/:platform/:gamertag", getPlayerProfile);
+
+app.get("/random/legend", RandomLegend);
+
+app.get("/random/firearmone", RandomGunOne);
+
+app.get("/random/firearmtwo", RandomGunTwo);
 
 // this is to catch all endpoint if their is any error.
 app.get("*", (req, res) => {

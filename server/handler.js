@@ -41,4 +41,99 @@ const getPlayerProfile = async (req, res) => {
   }
 };
 
-module.exports = { getPlayerProfile };
+const RandomLegend = (req, res) => {
+  let allLegend = [
+    "Bloodhound",
+    "Gibraltar",
+    "Lifeline",
+    "Pathfinder",
+    "Wraith",
+    "Bangalore",
+    "Caustic",
+    "Mirage",
+    "Octane",
+    "Wattson",
+    "Crypto",
+    "Revenant",
+    "Loba",
+    "Rampart",
+    "Horizon",
+    "Fuse",
+    "Valkyrie",
+  ];
+
+  const random = allLegend[Math.floor(Math.random() * allLegend.length)];
+
+  res.status(200).json({ Status: 200, data: random });
+};
+
+const RandomGunOne = (req, res) => {
+  let allFirearms = [
+    "Havoc",
+    "Flatline",
+    "Hemlok",
+    "R301",
+    "Alternator",
+    "Prowler",
+    "R99",
+    "Volt",
+    "Devotion",
+    "L-Star",
+    "Spitfire",
+    "G7 Scout",
+    "Triple Take",
+    "Repeater",
+    "Bocek Bow",
+    "Charge Rifle",
+    "Longbow",
+    "Kraber",
+    "Sentinel",
+    "EVA8",
+    "Mastiff",
+    "Mozambique",
+    "PeaceKeeper",
+    "RE-45",
+    "P2020",
+    "Wingman",
+  ];
+
+  const Firearms = allFirearms[Math.floor(Math.random() * allFirearms.length)];
+
+  res.status(200).json({ Status: 200, Firearm: Firearms });
+};
+const RandomGunTwo = (req, res) => {
+  let allFirearms = [
+    "Havoc",
+    "Flatline",
+    "Hemlok",
+    "R301",
+    "Alternator",
+    "Prowler",
+    "R99",
+    "Volt",
+    "Devotion",
+    "L-Star",
+    "Spitfire",
+    "G7 Scout",
+    "Triple Take",
+    "Repeater",
+    "Bocek Bow",
+    "Charge Rifle",
+    "Longbow",
+    "Kraber",
+    "Sentinel",
+    "EVA8",
+    "Mastiff",
+    "Mozambique",
+    "PeaceKeeper",
+    "RE-45",
+    "P2020",
+    "Wingman",
+  ];
+
+  const Firearms = allFirearms[Math.floor(Math.random() * allFirearms.length)];
+
+  res.status(200).json({ Status: 200, Firearm: Firearms });
+};
+
+module.exports = { getPlayerProfile, RandomLegend, RandomGunOne, RandomGunTwo };
