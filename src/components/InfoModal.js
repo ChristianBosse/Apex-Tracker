@@ -40,7 +40,7 @@ const ModalContent = styled.div`
   color: #141414;
 
   p {
-    color: #505050;
+    color: lightgray;
     margin-bottom: 1rem;
     font-family: "Roboto", sans-serif;
     font-weight: bolder;

@@ -75,48 +75,60 @@ const Form = styled.form`
 const Name = styled.input`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #303030;
+  background-color: #3d3d3d;
   border: none;
   border-radius: 5px;
-  color: grey;
+  color: lightgray;
   &:focus {
     outline: none;
+  }
+  ::placeholder {
+    color: lightgray;
   }
 `;
 
 const Email = styled.input`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #303030;
+  background-color: #3d3d3d;
   border: none;
   border-radius: 5px;
-  color: grey;
+  color: lightgray;
   &:focus {
     outline: none;
+  }
+  ::placeholder {
+    color: lightgray;
   }
 `;
 
 const Subject = styled.input`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #303030;
+  background-color: #3d3d3d;
   border: none;
   border-radius: 5px;
-  color: grey;
+  color: lightgray;
   &:focus {
     outline: none;
+  }
+  ::placeholder {
+    color: lightgray;
   }
 `;
 
 const Text = styled.textarea`
   margin: 5px 0px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background-color: #303030;
+  background-color: #3d3d3d;
   border: none;
   border-radius: 5px;
-  color: grey;
+  color: lightgray;
   &:focus {
     outline: none;
+  }
+  ::placeholder {
+    color: lightgray;
   }
 `;
 
@@ -124,8 +136,8 @@ const SendBtn = styled.input`
   width: 200px;
   margin-top: 10px;
   padding: 10px 10px;
-  background: #121212;
-  color: #505050;
+  background: #3d3d3d;
+  color: lightgray;
   border: none;
   border-radius: 7px;
   font-family: "Roboto", sans-serif;
@@ -135,8 +147,8 @@ const ClearBtn = styled.input`
   width: 200px;
   margin-top: 10px;
   padding: 10px 10px;
-  background: #121212;
-  color: #505050;
+  background: #3d3d3d;
+  color: lightgray;
   border: none;
   border-radius: 7px;
   font-family: "Roboto", sans-serif;

@@ -27,13 +27,31 @@ const LifetimeStats = () => {
               </RankName>
             </RankWrapper>
             <RpWrapper>
-              <RankScore>{segments[0].stats.rankScore.displayName}:</RankScore>
-              <RankRP>{segments[0].stats.rankScore.displayValue}</RankRP>
+              {segments[0].stats.rankScore ? (
+                <RankScore>
+                  {segments[0].stats.rankScore.displayName}:
+                </RankScore>
+              ) : (
+                <RankScore> Rank Score:</RankScore>
+              )}
+              {segments[0].stats.rankScore ? (
+                <RankRP>{segments[0].stats.rankScore.displayValue}</RankRP>
+              ) : (
+                <RankRP>No Data</RankRP>
+              )}
             </RpWrapper>
           </Rank>
           <LevelWrapper>
-            <LevelText>{segments[0].stats.level.displayName}:</LevelText>
-            <Level>{segments[0].stats.level.displayValue}</Level>
+            {segments[0].stats.level ? (
+              <LevelText>{segments[0].stats.level.displayName}:</LevelText>
+            ) : (
+              <LevelText>Level</LevelText>
+            )}
+            {segments[0].stats.level ? (
+              <Level>{segments[0].stats.level.displayValue}</Level>
+            ) : (
+              <Level>No Data</Level>
+            )}
           </LevelWrapper>
           <KillWrapper>
             {segments[0].stats.kills ? (
