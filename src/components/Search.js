@@ -71,7 +71,6 @@ const Search = () => {
           placeholder={platformText}
           onKeyDown={(ev) => {
             if (ev.target.value.length > 0) {
-              setUsername("");
               if (ev.key === "Enter") {
                 setUsername(ev.target.value);
                 history.push("/playersearch");

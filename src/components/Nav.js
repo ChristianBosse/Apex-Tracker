@@ -9,9 +9,6 @@ const Nav = () => {
       <Home exact to="/">
         HOME
       </Home>
-      <PlayerSearch exact to="/playersearch">
-        PLAYER LOOKUP
-      </PlayerSearch>
       <Randomizer exact to="/randomizer">
         RANDOMIZER
       </Randomizer>

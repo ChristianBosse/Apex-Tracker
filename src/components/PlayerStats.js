@@ -3,7 +3,7 @@ import styled from "styled-components";
 import bgForPlayer from "../Media/bgforplayer.png";
 import LifetimeStats from "./LifetimeStats";
 import { PlayerContext } from "./PlayerContext";
-// import UserHeaderStat from "./UserHeaderStat";
+import UserHeaderStat from "./UserHeaderStat";
 
 const PlayerStats = () => {
   const { username, platform, setPlayerData, playerData, setUsername } =
@@ -12,9 +12,6 @@ const PlayerStats = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (!username.length > 0) {
-      setUsername("Limenage");
-    }
     const api = async () => {
       await fetch(`/api/v2/profile/${platform}/${username}`, {
         headers: {
@@ -29,24 +26,15 @@ const PlayerStats = () => {
         });
     };
     api();
-  }, [setPlayerData]);
+  }, [username]);
 
-  // console.log(platform, username, playerData);
-  const { platformInfo, userInfo } = playerData;
-  // console.log(platformInfo, "PlatformInfo");
   console.log("got  api");
 
   return (
     <>
       {isLoaded ? (
         <Wrapper>
-          {/* <UserHeaderStat /> */}
-          <UserInfo>
-            <ProfilePic src={platformInfo.avatarUrl} />
-            <UserID>{platformInfo.platformUserId}</UserID>
-            <Platform>Platform: {platformInfo.platformSlug}</Platform>
-            <Views>Profile Views: {userInfo.pageviews}</Views>
-          </UserInfo>
+          <UserHeaderStat />
           <Bg src={bgForPlayer} />
           <LifetimeStats />
         </Wrapper>
@@ -67,49 +55,6 @@ const Bg = styled.img`
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-`;
-const Platform = styled.p`
-  color: white;
-  font-size: 13px;
-  font-family: "roboto";
-  position: absolute;
-  top: 645px;
-  left: 54vw;
-`;
-
-const Views = styled.p`
-  color: white;
-  font-size: 13px;
-  font-family: "roboto";
-  position: absolute;
-  top: 590px;
-  left: 39vw;
-`;
-
-const UserInfo = styled.div`
-  height: 80px;
-  max-width: 100vw;
-  background-color: #222222;
-  z-index: 2;
-`;
-
-const ProfilePic = styled.img`
-  height: 150px;
-  border-radius: 50%;
-  position: absolute;
-  border: white 4px solid;
-  top: 535px;
-  left: 45.5vw;
-  z-index: 2;
-`;
-
-const UserID = styled.p`
-  position: absolute;
-  color: white;
-  top: 610px;
-  left: 54vw;
-  font-size: 30px;
-  font-family: "roboto";
 `;
 
 export default PlayerStats;

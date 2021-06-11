@@ -36,12 +36,28 @@ const LifetimeStats = () => {
             <Level>{segments[0].stats.level.displayValue}</Level>
           </LevelWrapper>
           <KillWrapper>
-            <KillText>{segments[0].stats.kills.displayName}</KillText>
-            <TotalKills>{segments[0].stats.kills.displayValue}</TotalKills>
+            {segments[0].stats.kills ? (
+              <KillText>{segments[0].stats.kills.displayName}</KillText>
+            ) : (
+              <KillText>Kills</KillText>
+            )}
+            {segments[0].stats.kills ? (
+              <TotalKills>{segments[0].stats.kills.displayValue}</TotalKills>
+            ) : (
+              <TotalKills>No Data</TotalKills>
+            )}
           </KillWrapper>
           <DamageWrapper>
-            <DamageText>{segments[0].stats.damage.displayName}</DamageText>
-            <AllDamage>{segments[0].stats.damage.displayValue}</AllDamage>
+            {segments[0].stats.damage ? (
+              <DamageText>{segments[0].stats.damage.displayName}</DamageText>
+            ) : (
+              <DamageText>Damage</DamageText>
+            )}
+            {segments[0].stats.damage ? (
+              <AllDamage>{segments[0].stats.damage.displayValue}</AllDamage>
+            ) : (
+              <AllDamage>No Data</AllDamage>
+            )}
           </DamageWrapper>
         </LifetimeOverview>
       </Lifetime>
