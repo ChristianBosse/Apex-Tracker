@@ -9,20 +9,16 @@ const LifetimeStats = () => {
 
   console.log(playerData);
 
-  const matches = () => {
-    if (segments[0].stats.matchesPlayed.displayValue !== undefined) {
-      return `${segments[0].stats.matchesPlayed.displayValue} Matches.`;
-    } else {
-      return "No Matches Data.";
-    }
-  };
-
   return (
     <Wrapper>
       <Lifetime>
         <LifetimeOverview>
           <LifetimeText>Lifetime Overview</LifetimeText>
-          <Matches>{matches}</Matches>
+          {segments[0].stats.matchesPlayed && (
+            <Matches>
+              {segments[0].stats.matchesPlayed.displayValue} Matches
+            </Matches>
+          )}
           <Rank>
             <RankWrapper>
               <RankPic src={segments[0].stats.rankScore.metadata.iconUrl} />

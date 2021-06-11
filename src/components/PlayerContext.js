@@ -7,7 +7,7 @@ export const PlayerContextProvider = ({ children }) => {
   const [platform, setPlatform] = useState("origin");
   const [username, setUsername] = useState("");
 
-  //   console.log("PlayerContext", platform, username.length);
+  // console.log("PlayerContext", platform, username);
 
   return (
     <PlayerContext.Provider

@@ -26,22 +26,24 @@ const Search = () => {
     setPlatform("xbox");
   };
   const history = useHistory();
-  useEffect(() => {
-    const listener = (e) => {
-      if (e.code === "Enter") {
-        if (username.length > 0) {
-          console.log("Enter Pressed", username.length);
-          e.preventDefault();
-          history.push("/playersearch");
-        }
-      }
-    };
+  // useEffect(() => {
+  //   const listener = (e) => {
+  //     if (e.code === "Enter") {
+  //       if (username.length > 0) {
+  //         console.log("Enter Pressed", username.length);
+  //         e.preventDefault();
+  //         history.push("/playersearch");
+  //       }
+  //     }
+  //   };
 
-    window.addEventListener("keydown", listener);
-    return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, [username]);
+  //   window.addEventListener("", listener);
+  //   return () => {
+  //     window.removeEventListener("keydown", listener);
+  //   };
+  // }, [username]);
+
+  // console.log(username.length);
 
   return (
     <Wrapper>
@@ -64,9 +66,18 @@ const Search = () => {
           <Logo src={xboxLogo} />
         </Xbox>
         <PlayerSearch
-          onChange={(e) => setUsername(e.target.value)}
+          // onChange={(e) => setUsername(e.target.value)}
           type="text"
           placeholder={platformText}
+          onKeyDown={(ev) => {
+            if (ev.target.value.length > 0) {
+              setUsername("");
+              if (ev.key === "Enter") {
+                setUsername(ev.target.value);
+                history.push("/playersearch");
+              }
+            }
+          }}
         ></PlayerSearch>
       </SearchWrapper>
     </Wrapper>
