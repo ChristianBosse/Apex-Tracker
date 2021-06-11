@@ -7,6 +7,7 @@ import StatPage from "./StatPage";
 import RandomizerPage from "./RandomizerPage";
 import AboutPage from "./AboutPage";
 import { PlayerContextProvider } from "./PlayerContext";
+import ProfilePage from "./ProfilePage";
 
 const App = () => {
   return (
@@ -25,6 +26,9 @@ const App = () => {
             </Route>
             <Route exact path="/about">
               <AboutPage />
+            </Route>
+            <Route exact path="/profile">
+              <ProfilePage />
             </Route>
           </Switch>
         </Main>

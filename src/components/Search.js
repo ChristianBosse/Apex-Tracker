@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import originLogo from "../Media/originlogo.svg";
 import playstationLogo from "../Media/PlayStationlogo.svg";
@@ -9,7 +9,7 @@ import { PlayerContext } from "./PlayerContext";
 import { useHistory } from "react-router-dom";
 
 const Search = () => {
-  const { setPlatform, setUsername, username } = useContext(PlayerContext);
+  const { setPlatform, setUsername } = useContext(PlayerContext);
 
   const [platformText, setPlatformText] = useState("Enter Origin Username");
 
@@ -26,24 +26,6 @@ const Search = () => {
     setPlatform("xbox");
   };
   const history = useHistory();
-  // useEffect(() => {
-  //   const listener = (e) => {
-  //     if (e.code === "Enter") {
-  //       if (username.length > 0) {
-  //         console.log("Enter Pressed", username.length);
-  //         e.preventDefault();
-  //         history.push("/playersearch");
-  //       }
-  //     }
-  //   };
-
-  //   window.addEventListener("", listener);
-  //   return () => {
-  //     window.removeEventListener("keydown", listener);
-  //   };
-  // }, [username]);
-
-  // console.log(username.length);
 
   return (
     <Wrapper>

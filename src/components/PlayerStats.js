@@ -6,8 +6,7 @@ import { PlayerContext } from "./PlayerContext";
 import UserHeaderStat from "./UserHeaderStat";
 
 const PlayerStats = () => {
-  const { username, platform, setPlayerData, playerData, setUsername } =
-    useContext(PlayerContext);
+  const { username, platform, setPlayerData } = useContext(PlayerContext);
 
   const [isLoaded, setIsLoaded] = useState(false);
 
