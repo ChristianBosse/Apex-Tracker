@@ -6,7 +6,11 @@ const Profile = () => {
 
   return (
     <>
-      <div>{user}</div>
+      <div>{JSON.stringify(user, null, 2)}</div>
+      <img src={user.picture} />
+      <p>{user.name}</p>
+      <p>{user.email}</p>
+      <p>{user.updated_at}</p>
     </>
   );
 };

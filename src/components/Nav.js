@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import "../CSS/index.css";
 import { NavLink } from "react-router-dom";
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Nav = () => {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <Wrapper className="stickyHeader">
       <Home exact to="/">
@@ -17,8 +18,11 @@ const Nav = () => {
       <About exact to="/about">
         ABOUT
       </About>
-      <LoginButton />
-      <LogoutButton />
+      {isAuthenticated && (
+        <Profile exact to="/profile">
+          PROFILE
+        </Profile>
+      )}
     </Wrapper>
   );
 };
@@ -59,6 +63,17 @@ const Randomizer = styled(NavLink)`
 `;
 
 const About = styled(NavLink)`
+  color: white;
+  font-size: 22px;
+  margin: 0px 20px;
+  &:hover {
+    color: #da292a;
+  }
+  &.active {
+    color: #da292a;
+  }
+`;
+const Profile = styled(NavLink)`
   color: white;
   font-size: 22px;
   margin: 0px 20px;

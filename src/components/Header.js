@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Nav from "./Nav";
 import styled from "styled-components";
 import InfoModal from "./InfoModal";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,6 +19,8 @@ const Header = () => {
   return (
     <>
       <Wrapper>
+        <LoginButton />
+        <LogoutButton />
         <QuestionMark
           width="16"
           height="16"
