@@ -25,8 +25,9 @@ const LoginButton = () => {
 const LoginBtn = styled.svg`
   height: 32px;
   position: absolute;
-  left: 74vw;
+  left: 90vw;
   cursor: pointer;
+  width: 30px;
   path {
     fill: #505050;
   }

@@ -9,6 +9,7 @@ const {
   RandomGunOne,
   RandomGunTwo,
 } = require("./handler");
+const { getUsers, AddConfig, AddUsername } = require("./mongo");
 
 //Load the config.env file to use API and URL
 dotenv.config({ path: "./config.env" });
@@ -32,6 +33,15 @@ app.get("/random/legend", RandomLegend);
 app.get("/random/firearmone", RandomGunOne);
 
 app.get("/random/firearmtwo", RandomGunTwo);
+
+app.get("/mongo/:userEmail", getUsers);
+
+app.post(
+  "/mongo/add/:userEmail/:SelectedLegend/:SelectedPrimary/:SelectedSecondary",
+  AddConfig
+);
+
+app.patch("/mongo/username/:userEmail/:username", AddUsername);
 
 // this is to catch all endpoint if their is any error.
 app.get("*", (req, res) => {

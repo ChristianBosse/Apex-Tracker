@@ -43,6 +43,8 @@ import tripple from "../WeaponImage/Tripple.png";
 import volt from "../WeaponImage/Volt.png";
 import wingman from "../WeaponImage/Wingman.png";
 import bocek from "../WeaponImage/Bocek.png";
+import SaveLegend from "./SaveLegend";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const RandomizerData = () => {
   const [legend, setLegend] = useState("");
@@ -52,6 +54,7 @@ const RandomizerData = () => {
   const [randomize, setRandomize] = useState(false);
   const [primaryPic, setPrimaryPic] = useState();
   const [secondaryPic, setSecondaryPic] = useState();
+  const { isAuthenticated } = useAuth0();
 
   useEffect(() => {
     fetch("/random/legend")
@@ -313,6 +316,13 @@ const RandomizerData = () => {
           <SecondaryPic src={secondaryPic} />
         </FirearmWrapper>
       </LegendRandomizer>
+      {isAuthenticated && (
+        <SaveLegend
+          legend={legend}
+          firstFirearm={firstFirearm}
+          secondFirearm={secondFirearm}
+        />
+      )}
     </Wrapper>
   );
 };
