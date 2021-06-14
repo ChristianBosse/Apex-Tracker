@@ -25,6 +25,10 @@ const Profile = () => {
   const sendUpdate = async () => {
     await fetch(`/mongo/username/${user.email}/${username}`, {
       method: "patch",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -76,9 +80,21 @@ const Profile = () => {
             <UserEmail>{userProfile[0].email}</UserEmail>
           </UserInfo>
           <UserConfig>
-            <LegendName></LegendName>
-            <Primary></Primary>
-            <Secondary></Secondary>
+            <CustomWrap>
+              <CustomText>Legend</CustomText>
+              <CustomText>Primary</CustomText>
+              <CustomText>Secondary</CustomText>
+            </CustomWrap>
+            {userProfile.map((e) => {
+              return (
+                <Wrap>
+                  <LegendName>{e.Legend}</LegendName>
+                  <Primary>{e.Primary}</Primary>
+                  <Secondary>{e.Secondary}</Secondary>
+                  <DeleteBtn>Delete</DeleteBtn>
+                </Wrap>
+              );
+            })}
           </UserConfig>
         </Wrapper>
       ) : (
@@ -87,6 +103,47 @@ const Profile = () => {
     </>
   );
 };
+
+const DeleteBtn = styled.button`
+  border: none;
+  background-color: #606060;
+  color: white;
+  font-family: "roboto";
+`;
+
+const CustomWrap = styled.div`
+  height: 30px;
+  width: 400px;
+  background-color: #353535;
+  border-radius: 10px;
+  position: relative;
+  left: 100px;
+  top: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+`;
+
+const CustomText = styled.p`
+  color: lightgray;
+  font-family: "roboto";
+  margin: 0px 25px;
+`;
+
+const Wrap = styled.div`
+  height: 30px;
+  width: 400px;
+  background-color: #353535;
+  border-radius: 10px;
+  position: relative;
+  left: 100px;
+  top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+`;
 
 const NewUsername = styled.input`
   border: none;
@@ -188,12 +245,33 @@ const UserEmail = styled.p`
   display: inline-block;
 `;
 
-const UserConfig = styled.div``;
+const UserConfig = styled.div`
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  height: 500px;
+  width: 600px;
+  position: relative;
+  background-color: #252525;
+  border-radius: 10px;
+  bottom: 330px;
+  left: 1250px;
+`;
 
-const LegendName = styled.p``;
+const LegendName = styled.p`
+  color: lightgray;
+  font-family: "roboto";
+  margin: 0px 10px;
+`;
 
-const Primary = styled.p``;
+const Primary = styled.p`
+  color: lightgray;
+  font-family: "roboto";
+  margin: 0px 10px;
+`;
 
-const Secondary = styled.p``;
+const Secondary = styled.p`
+  color: lightgray;
+  font-family: "roboto";
+  margin: 0px 10px;
+`;
 
 export default Profile;
