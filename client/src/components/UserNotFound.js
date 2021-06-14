@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import sadface from "../Media/sadface.png";
 
+//when a user isn't found in the API show an error.
 const UserNotFound = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const UserNotFound = () => {
   );
 };
 
+//style are below
 const Wrapper = styled.div`
   height: 80px;
   max-width: 100vw;

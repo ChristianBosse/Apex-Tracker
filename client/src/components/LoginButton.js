@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 
 const LoginButton = () => {
+  //LogIn button which use the Auth0 authenticated method.
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
     !isAuthenticated && (
@@ -22,6 +23,7 @@ const LoginButton = () => {
   );
 };
 
+//style are below.
 const LoginBtn = styled.svg`
   height: 32px;
   position: absolute;

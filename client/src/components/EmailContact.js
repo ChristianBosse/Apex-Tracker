@@ -3,11 +3,14 @@ import styled from "styled-components";
 import emailjs from "emailjs-com";
 import succesCheckmark from "../Media/checkmark.svg";
 
+//This file connect to EmailJS so people can send email from the site.
 const EmailContact = () => {
+  //EmailJS API key is located into the .env file.
   const userID = process.env.REACT_APP_EMAILJS_API_KEY;
 
   const [deliverSuccess, setDeliverSuccess] = useState(false);
 
+  //code the send email following EmailJS template.
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -53,6 +56,7 @@ const EmailContact = () => {
   );
 };
 
+//All style are below.
 const Wrapper = styled.div``;
 
 const Form = styled.form`

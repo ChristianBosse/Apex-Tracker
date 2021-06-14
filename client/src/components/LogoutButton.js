@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 
 const LogoutButton = () => {
+  //LogOut button which show the Auth0 Authenticated method
   const { logout, isAuthenticated } = useAuth0();
 
   return (
@@ -23,6 +24,7 @@ const LogoutButton = () => {
   );
 };
 
+//style are below
 const LogoutBtn = styled.svg`
   height: 32px;
   position: absolute;

@@ -30,6 +30,7 @@ const Footer = () => {
   );
 };
 
+//Footer style are below.
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;

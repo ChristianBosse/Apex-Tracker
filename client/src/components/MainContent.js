@@ -7,6 +7,7 @@ import bloodhound from "../Media/bloodhound.png";
 import Search from "./Search";
 
 const MainContent = () => {
+  //Main content of the main page.
   return (
     <Wrapper>
       <Search />
@@ -56,6 +57,7 @@ const MainContent = () => {
   );
 };
 
+//style are below
 const MetaWrapper = styled.div`
   position: absolute;
   top: 70vh;

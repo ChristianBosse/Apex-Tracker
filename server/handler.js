@@ -42,6 +42,7 @@ const getPlayerProfile = async (req, res) => {
 };
 
 const RandomLegend = (req, res) => {
+  //Array of all Legend in Season 9 used for randomizer
   let allLegend = [
     "Bloodhound",
     "Gibraltar",
@@ -61,13 +62,14 @@ const RandomLegend = (req, res) => {
     "Fuse",
     "Valkyrie",
   ];
-
+  //randomize the legend
   const random = allLegend[Math.floor(Math.random() * allLegend.length)];
-
+  //returning randomized legend
   res.status(200).json({ Status: 200, data: random });
 };
 
 const RandomGunOne = (req, res) => {
+  //Array of all Firearm in season 9 for the randomizer
   let allFirearms = [
     "Havoc",
     "Flatline",
@@ -96,12 +98,13 @@ const RandomGunOne = (req, res) => {
     "P2020",
     "Wingman",
   ];
-
+  //Randomize all firearm
   const Firearms = allFirearms[Math.floor(Math.random() * allFirearms.length)];
-
+  //send randomized firearm
   res.status(200).json({ Status: 200, Firearm: Firearms });
 };
 const RandomGunTwo = (req, res) => {
+  //Array of all Firearm in season 9 for the randomizer
   let allFirearms = [
     "Havoc",
     "Flatline",
@@ -130,9 +133,9 @@ const RandomGunTwo = (req, res) => {
     "P2020",
     "Wingman",
   ];
-
+  //randomize firearm
   const Firearms = allFirearms[Math.floor(Math.random() * allFirearms.length)];
-
+  //send randomized firearm
   res.status(200).json({ Status: 200, Firearm: Firearms });
 };
 

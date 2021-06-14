@@ -34,6 +34,7 @@ app.get("/random/firearmone", RandomGunOne);
 
 app.get("/random/firearmtwo", RandomGunTwo);
 
+//Endpoint down below are located in the mongo.js File
 app.get("/mongo/:userEmail", getUsers);
 
 app.post(

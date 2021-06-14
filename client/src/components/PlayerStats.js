@@ -8,11 +8,13 @@ import UserNotFound from "./UserNotFound";
 import Loading from "./Loading";
 
 const PlayerStats = () => {
+  //using PlayerContext for API Data
   const { username, platform, setPlayerData, playerData } =
     useContext(PlayerContext);
-
+  //Telling the page to render on loaded
   const [isLoaded, setIsLoaded] = useState(false);
 
+  //fetching backend API to get user data
   useEffect(() => {
     const api = async () => {
       await fetch(`/api/v2/profile/${platform}/${username}`, {
@@ -29,8 +31,6 @@ const PlayerStats = () => {
     };
     api();
   }, [username]);
-
-  console.log("got  api");
 
   return (
     <>
@@ -53,6 +53,7 @@ const PlayerStats = () => {
   );
 };
 
+//style are below.
 const Wrapper = styled.div``;
 
 const Bg = styled.img`

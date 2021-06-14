@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { PlayerContext } from "./PlayerContext";
 
 const UserHeaderStat = () => {
+  //using PlayerContext to render searched player info
   const { playerData } = useContext(PlayerContext);
 
   const { platformInfo, userInfo } = playerData;
@@ -17,6 +18,7 @@ const UserHeaderStat = () => {
   );
 };
 
+//style are below
 const Platform = styled.p`
   color: white;
   font-size: 13px;

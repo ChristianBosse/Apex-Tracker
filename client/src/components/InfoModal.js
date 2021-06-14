@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 import EmailContact from "./EmailContact";
 
+//All the style for the modal are below.
+//Background is to blur the background.
+//Modal Wrapper is the background of the actual Modal.
 const Background = styled.div`
   width: 100%;
   height: 100%;

@@ -3,8 +3,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 
 const SaveLegend = ({ legend, firstFirearm, secondFirearm }) => {
+  //using Auth0 to show if player is online
   const { user } = useAuth0();
-
+  //Adding randomized data to user profile in mongodb
   const AddLegend = async () => {
     await fetch(
       `/mongo/add/${user.email}/${legend}/${firstFirearm.Firearm}/${secondFirearm.Firearm}`,
@@ -25,6 +26,7 @@ const SaveLegend = ({ legend, firstFirearm, secondFirearm }) => {
   );
 };
 
+//style are below
 const SaveLegendBtn = styled.button`
   position: absolute;
   top: 700px;

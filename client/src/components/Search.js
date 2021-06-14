@@ -9,10 +9,11 @@ import { PlayerContext } from "./PlayerContext";
 import { useHistory } from "react-router-dom";
 
 const Search = () => {
+  //using playerContext to set platform and username
   const { setPlatform, setUsername } = useContext(PlayerContext);
 
   const [platformText, setPlatformText] = useState("Enter Origin Username");
-
+  //Onclick event for platform button
   const originPlatform = () => {
     setPlatformText("Enter Origin Username");
     setPlatform("origin");
@@ -68,6 +69,7 @@ const Search = () => {
   );
 };
 
+//style are below
 const DescText = styled.p`
   color: white;
   font-family: "roboto";

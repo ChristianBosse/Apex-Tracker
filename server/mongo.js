@@ -8,6 +8,7 @@ const options = {
   useUnifiedTopology: true,
 };
 
+//gets user from your mongo database
 const getUsers = async (req, res) => {
   const { userEmail } = req.params;
 
@@ -30,6 +31,7 @@ const getUsers = async (req, res) => {
   console.log("disconnected");
 };
 
+//add saved configuration on Apex Randomizer when user is logged In
 const AddConfig = async (req, res) => {
   const { userEmail, SelectedLegend, SelectedPrimary, SelectedSecondary } =
     req.params;
@@ -55,6 +57,7 @@ const AddConfig = async (req, res) => {
   console.log("disconnected");
 };
 
+//Add/Update username for the person profile
 const AddUsername = async (req, res) => {
   const { userEmail, username } = req.params;
 
@@ -76,6 +79,7 @@ const AddUsername = async (req, res) => {
   console.log("disconnected");
 };
 
+//used to delete saved config on your profile.
 const DeleteConfig = async (req, res) => {
   const { id } = req.params;
 

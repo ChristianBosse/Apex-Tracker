@@ -9,6 +9,8 @@ import AboutPage from "./AboutPage";
 import { PlayerContextProvider } from "./PlayerContext";
 import ProfilePage from "./ProfilePage";
 
+//PlayerContext is used to give the API the username and platform value.
+//Its wrapped around everything for ease of access trought the app.
 const App = () => {
   return (
     <PlayerContextProvider>

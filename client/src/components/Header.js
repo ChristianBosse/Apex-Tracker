@@ -6,6 +6,7 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
 const Header = () => {
+  //This set the modal showed on page.
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -64,6 +65,7 @@ const Header = () => {
   );
 };
 
+//style are below.
 const Wrapper = styled.div`
   display: flex;
   align-items: center;

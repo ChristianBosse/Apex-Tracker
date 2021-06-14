@@ -5,13 +5,20 @@ import defaultPic from "../Media/default.jpg";
 import Loading from "./Loading";
 
 const Profile = () => {
+  //using Authentication method to show user is signed in
   const { user, isAuthenticated } = useAuth0();
+  //Getting user Profile from database
   const [userProfile, setUserProfile] = useState([]);
+  //Set the page to is loaded to render
   const [isLoaded, setIsLoaded] = useState(false);
+  //tell the page to show username update.
   const [update, setUpdate] = useState(false);
+  //sets the new username
   const [username, setUsername] = useState("");
+  //re-render the page on username change.
   const [reload, setReload] = useState(false);
 
+  //send username update to mongodb using backend API
   const sendUpdate = async () => {
     await fetch(`/mongo/username/${user.email}/${username}`, {
       method: "PATCH",
@@ -27,7 +34,7 @@ const Profile = () => {
     setUpdate(false);
     setReload((e) => !e);
   };
-
+  //get user detail from mongodb
   useEffect(() => {
     const mongo = async () => {
       await fetch(`/mongo/${user.email}`)
@@ -39,7 +46,7 @@ const Profile = () => {
     };
     mongo();
   }, [reload]);
-
+  //delete user saved randomizer config from mongodb
   const deleteConfig = (item) => {
     console.log(item);
     fetch(`/mongo/delete/${item}`, {
@@ -52,7 +59,7 @@ const Profile = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
-
+  //used to show the box to update username
   const updateUsername = () => {
     setUpdate(true);
   };
@@ -126,6 +133,7 @@ const Profile = () => {
   );
 };
 
+//style are below.
 const ConfigText = styled.p`
   position: relative;
   color: lightgray;

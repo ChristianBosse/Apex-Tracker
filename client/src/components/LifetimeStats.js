@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { PlayerContext } from "./PlayerContext";
 
 const LifetimeStats = () => {
+  //Get Data from PlayerContext to fetch the API
   const { playerData } = useContext(PlayerContext);
-
+  //segments of a players Apex Legend Profile.
   const { segments } = playerData;
 
   console.log(playerData);
@@ -83,6 +84,7 @@ const LifetimeStats = () => {
   );
 };
 
+//All style are below.
 const Wrapper = styled.div``;
 
 const LevelText = styled.p`

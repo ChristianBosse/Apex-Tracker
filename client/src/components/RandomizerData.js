@@ -47,6 +47,7 @@ import SaveLegend from "./SaveLegend";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const RandomizerData = () => {
+  //using all of the use State to set randomized Legend, Primary, Secondary along with picture.
   const [legend, setLegend] = useState("");
   const [firstFirearm, setFirstFirearm] = useState("");
   const [secondFirearm, setSecondFirearm] = useState("");
@@ -54,25 +55,27 @@ const RandomizerData = () => {
   const [randomize, setRandomize] = useState(false);
   const [primaryPic, setPrimaryPic] = useState();
   const [secondaryPic, setSecondaryPic] = useState();
+  //using Auth0 authentication to show save config to profile.
   const { isAuthenticated } = useAuth0();
 
+  //using Endpoint to get a random legend
   useEffect(() => {
     fetch("/random/legend")
       .then((res) => res.json())
       .then((data) => setLegend(data.data));
   }, [randomize]);
-
+  //using Endpoint to get a random Primary
   useEffect(() => {
     fetch("/random/firearmone")
       .then((res) => res.json())
       .then((data) => setFirstFirearm(data));
   }, [legend]);
-
+  //using Endpoint to get a random secondary
   useEffect(() => {
     fetch("/random/firearmtwo")
       .then((res) => res.json())
       .then((data) => setSecondFirearm(data));
-
+    //All these switch case are set to display the right picture.
     switch (legend) {
       case "Wraith":
         setLegendPic(wraith);
@@ -327,6 +330,7 @@ const RandomizerData = () => {
   );
 };
 
+//style are below
 const Wrapper = styled.div``;
 
 const LegendRandomizer = styled.div`

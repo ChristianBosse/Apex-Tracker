@@ -3,6 +3,7 @@ import BarLoader from "react-spinners/BarLoader";
 import styled from "styled-components";
 import { css } from "@emotion/react";
 
+//override normal Loader css
 const override = css`
   display: block;
   margin: 0 auto;
@@ -11,6 +12,7 @@ const override = css`
 `;
 
 const Loading = () => {
+  //used to set the loader to Loading on the page.
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState("#FFFFFF");
 
@@ -21,6 +23,7 @@ const Loading = () => {
   );
 };
 
+//style are below.
 const Wrapper = styled.div`
   height: 200px;
   max-width: 100vw;

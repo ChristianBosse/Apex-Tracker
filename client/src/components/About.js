@@ -58,6 +58,7 @@ const About = () => {
   );
 };
 
+//All styles are down below.
 const Play = styled.p`
   color: white;
   /* font-family: "roboto"; */

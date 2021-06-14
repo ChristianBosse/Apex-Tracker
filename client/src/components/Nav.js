@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Nav = () => {
+  //Using Authentication to show the profile tab
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -27,6 +28,7 @@ const Nav = () => {
   );
 };
 
+//style is below
 const Wrapper = styled.div`
   height: 45px;
   max-width: 100vw;
