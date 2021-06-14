@@ -75,4 +75,25 @@ const AddUsername = async (req, res) => {
   client.close();
   console.log("disconnected");
 };
-module.exports = { getUsers, AddConfig, AddUsername };
+
+const DeleteConfig = async (req, res) => {
+  const { id } = req.params;
+
+  const client = await MongoClient(MONGO_URI, options);
+
+  await client.connect();
+
+  const db = client.db("db-name");
+
+  console.log("connected");
+
+  const users = await db.collection("users").deleteOne({ _id: id });
+
+  res.json({ status: 200, data: users });
+  console.log(users);
+
+  client.close();
+  console.log("disconnected");
+};
+
+module.exports = { getUsers, AddConfig, AddUsername, DeleteConfig };

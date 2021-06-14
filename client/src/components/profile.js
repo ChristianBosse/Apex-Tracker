@@ -25,7 +25,7 @@ const Profile = () => {
         console.log(data);
       });
     setUpdate(false);
-    setReload(!false);
+    setReload((e) => !e);
   };
 
   useEffect(() => {
@@ -42,7 +42,6 @@ const Profile = () => {
 
   const deleteConfig = (item) => {
     console.log(item);
-    // const itemToDelete = { _id };
     fetch(`/mongo/delete/${item}`, {
       method: "DELETE",
       headers: {
@@ -103,6 +102,7 @@ const Profile = () => {
                   <CustomText>Primary</CustomText>
                   <CustomText>Secondary</CustomText>
                 </CustomWrap>
+                <ConfigText>Randomizer saved configuration.</ConfigText>
                 {userProfile.map((e) => {
                   return (
                     <Wrap>
@@ -125,6 +125,14 @@ const Profile = () => {
     </>
   );
 };
+
+const ConfigText = styled.p`
+  position: relative;
+  color: lightgray;
+  font-family: "roboto";
+  font-size: 20px;
+  text-align: center;
+`;
 
 const DeleteBtn = styled.button`
   border: none;
@@ -160,7 +168,7 @@ const Wrap = styled.div`
   border-radius: 10px;
   position: relative;
   left: 100px;
-  top: 50px;
+  top: 25px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
