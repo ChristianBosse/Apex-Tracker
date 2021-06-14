@@ -38,6 +38,9 @@ const Search = () => {
         </TextWrapper>
       </TrackWrapper>
       <SearchWrapper>
+        <DescText>
+          Choose your platform and input your username then press Enter.
+        </DescText>
         <Origin onClick={originPlatform} autoFocus>
           <Logo src={originLogo} />
         </Origin>
@@ -64,6 +67,15 @@ const Search = () => {
     </Wrapper>
   );
 };
+
+const DescText = styled.p`
+  color: white;
+  font-family: "roboto";
+  position: absolute;
+  top: -30px;
+  width: 600px;
+  left: 70px;
+`;
 
 const Wrapper = styled.div`
   margin: 0;

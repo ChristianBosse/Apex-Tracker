@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 import defaultPic from "../Media/default.jpg";
+import Loading from "./Loading";
 
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -9,6 +10,23 @@ const Profile = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [update, setUpdate] = useState(false);
   const [username, setUsername] = useState("");
+  const [reload, setReload] = useState(false);
+
+  const sendUpdate = async () => {
+    await fetch(`/mongo/username/${user.email}/${username}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+    setUpdate(false);
+    setReload(!false);
+  };
 
   useEffect(() => {
     const mongo = async () => {
@@ -20,85 +38,89 @@ const Profile = () => {
         });
     };
     mongo();
-  }, []);
+  }, [reload]);
 
-  const sendUpdate = async () => {
-    await fetch(`/mongo/username/${user.email}/${username}`, {
-      method: "patch",
+  const deleteConfig = (item) => {
+    console.log(item);
+    // const itemToDelete = { _id };
+    fetch(`/mongo/delete/${item}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then((data) => console.log(data));
   };
 
   const updateUsername = () => {
     setUpdate(true);
   };
 
-  console.log(userProfile);
-
   return (
     <>
       {isLoaded && isAuthenticated ? (
-        <Wrapper>
-          <Head />
-          <UserInfo>
-            {userProfile.ProfilePic ? (
-              <UserPicture src={userProfile.profilePic} />
-            ) : (
-              <UserPicture src={defaultPic} />
-            )}
+        <div>
+          {userProfile && user.email !== undefined ? (
+            <Wrapper>
+              <Head />
+              <UserInfo>
+                {userProfile.ProfilePic ? (
+                  <UserPicture src={userProfile.profilePic} />
+                ) : (
+                  <UserPicture src={defaultPic} />
+                )}
 
-            <div>
-              {update ? (
-                <>
-                  <NewUsername
-                    type="text"
-                    placeholder="New Username"
-                    onChange={(e) => setUsername(e.target.value)}
-                    autoFocus
-                  ></NewUsername>
-                  <SaveUsername onClick={sendUpdate}>
-                    Save Username
-                  </SaveUsername>
-                </>
-              ) : (
-                <>
-                  <UserName>{userProfile[0].Username}</UserName>
-                  <SetUsername onClick={updateUsername}>
-                    Update Username
-                  </SetUsername>
-                </>
-              )}
-            </div>
+                <div>
+                  {update ? (
+                    <>
+                      <NewUsername
+                        type="text"
+                        placeholder="New Username"
+                        onChange={(e) => setUsername(e.target.value)}
+                        autoFocus
+                      ></NewUsername>
+                      <SaveUsername onClick={sendUpdate}>
+                        Save Username
+                      </SaveUsername>
+                    </>
+                  ) : (
+                    <>
+                      <UserName>{userProfile[0].Username}</UserName>
+                      <SetUsername onClick={updateUsername}>
+                        Update Username
+                      </SetUsername>
+                    </>
+                  )}
+                </div>
 
-            <UserEmail>{userProfile[0].email}</UserEmail>
-          </UserInfo>
-          <UserConfig>
-            <CustomWrap>
-              <CustomText>Legend</CustomText>
-              <CustomText>Primary</CustomText>
-              <CustomText>Secondary</CustomText>
-            </CustomWrap>
-            {userProfile.map((e) => {
-              return (
-                <Wrap>
-                  <LegendName>{e.Legend}</LegendName>
-                  <Primary>{e.Primary}</Primary>
-                  <Secondary>{e.Secondary}</Secondary>
-                  <DeleteBtn>Delete</DeleteBtn>
-                </Wrap>
-              );
-            })}
-          </UserConfig>
-        </Wrapper>
+                <UserEmail>{userProfile[0].email}</UserEmail>
+              </UserInfo>
+              <UserConfig>
+                <CustomWrap>
+                  <CustomText>Legend</CustomText>
+                  <CustomText>Primary</CustomText>
+                  <CustomText>Secondary</CustomText>
+                </CustomWrap>
+                {userProfile.map((e) => {
+                  return (
+                    <Wrap>
+                      <LegendName>{e.Legend}</LegendName>
+                      <Primary>{e.Primary}</Primary>
+                      <Secondary>{e.Secondary}</Secondary>
+                      <DeleteBtn onClick={deleteConfig}>Delete</DeleteBtn>
+                    </Wrap>
+                  );
+                })}
+              </UserConfig>
+            </Wrapper>
+          ) : (
+            <div>Profile not found</div>
+          )}
+        </div>
       ) : (
-        <div>Loading</div>
+        <Loading />
       )}
     </>
   );

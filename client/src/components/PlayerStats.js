@@ -4,9 +4,12 @@ import bgForPlayer from "../Media/bgforplayer.png";
 import LifetimeStats from "./LifetimeStats";
 import { PlayerContext } from "./PlayerContext";
 import UserHeaderStat from "./UserHeaderStat";
+import UserNotFound from "./UserNotFound";
+import Loading from "./Loading";
 
 const PlayerStats = () => {
-  const { username, platform, setPlayerData } = useContext(PlayerContext);
+  const { username, platform, setPlayerData, playerData } =
+    useContext(PlayerContext);
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -32,13 +35,19 @@ const PlayerStats = () => {
   return (
     <>
       {isLoaded ? (
-        <Wrapper>
-          <UserHeaderStat />
-          <Bg src={bgForPlayer} />
-          <LifetimeStats />
-        </Wrapper>
+        <div>
+          {playerData !== undefined ? (
+            <Wrapper>
+              <UserHeaderStat />
+              <Bg src={bgForPlayer} />
+              <LifetimeStats />
+            </Wrapper>
+          ) : (
+            <UserNotFound />
+          )}
+        </div>
       ) : (
-        <div>Loading...</div>
+        <Loading />
       )}
     </>
   );

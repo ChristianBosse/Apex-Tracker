@@ -13,21 +13,27 @@ const About = () => {
         <Wrapper>
           <AboutMe>
             Hello, my name is Christian Bosse, I am a Full-stack web developer
-            that graduated from Concordia University on June 16th, 2021. This
-            website is an amazing website that I did for my final project. I got
-            inspired to do this since I do love playing games and this is one of
-            my favorite. Apex Legend is an awesome battle royale game that I
-            love and have over 500+ hours. This website was made using React,
-            Node, MongoDB, and Express. I am very glad of my passion for web
-            development and am happy to commit to helping people enjoy a better
-            environment for user experience. This website uses API and so many
-            other things to get the data requested to the user as fast as
-            possible and in an awesome user experience way. This project is also
-            open-source to anybody who wishes to use it and all documentation
-            can be found on my GitHub. I am glad that you took the time to read
-            this and explore my website and hope you had an excellent
-            experience.
+            that graduated from Concordia University Web Development Bootcamp on
+            June 16th, 2021. This website is an amazing website that I did for
+            my final project. I got inspired to do this since I do love playing
+            games and this is one of my favorite. Apex Legend is an awesome
+            battle royale game that I love and have over 500+ hours.
           </AboutMe>
+          <AboutMe>
+            This website was made using React, Node, MongoDB, and Express. I am
+            very glad of my passion for web development and am happy to commit
+            to helping people enjoy a better environment for user experience.
+            This website uses API and so many other things to get the data
+            requested to the user as fast as possible and in an awesome user
+            experience way.
+          </AboutMe>
+          <AboutMe>
+            This project is also open-source to anybody who wishes to use it and
+            all documentation can be found on my GitHub. I am glad that you took
+            the time to read this and explore my website and hope you had an
+            excellent experience.
+          </AboutMe>
+          <AboutMe></AboutMe>
         </Wrapper>
       </Body>
       <ApexLegend>
@@ -111,7 +117,7 @@ const Title = styled.p`
 `;
 
 const Body = styled.div`
-  height: 500px;
+  height: 600px;
   max-width: 100vw;
   background-color: #282828;
 `;
@@ -130,5 +136,6 @@ const AboutMe = styled.p`
   color: lightgray;
   font-family: "roboto";
   font-size: 25px;
+  margin-bottom: 30px;
 `;
 export default About;
