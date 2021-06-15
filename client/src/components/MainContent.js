@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import wraith from "../Media/wraith.png";
 import octane from "../Media/octane.png";
@@ -18,8 +18,8 @@ const MainContent = () => {
           <MetaDescTwo>
             all tracked player, and is updated every monday.
           </MetaDescTwo>
+          <MetaDesc>These are currently the top legends of Apex.</MetaDesc>
         </MetaDesc>
-        <ViewMeta>View All Legends</ViewMeta>
       </MetaWrapper>
       <LegendMeta>
         <TopLegend>
@@ -27,28 +27,28 @@ const MainContent = () => {
             <LegendImg src={wraith} />
             <WraithInfo>
               <LegendName>Wraith</LegendName>
-              <Stat>Usage 14.2% KPM 3.5</Stat>
+              <Stat>Usage 14.1% KPM 3.5</Stat>
             </WraithInfo>
           </Wraith>
           <Octane>
             <LegendImg src={octane} />
             <OctaneInfo>
               <LegendName>Octane</LegendName>
-              <Stat>Usage 12.4% KPM 2.5</Stat>
+              <Stat>Usage 13% KPM 2.5</Stat>
             </OctaneInfo>
           </Octane>
           <Lifeline>
             <LegendImg src={lifeline} />
             <LifelineInfo>
               <LegendName>Lifeline</LegendName>
-              <Stat>Usage 13.7% KPM 3.1</Stat>
+              <Stat>Usage 14.4% KPM 3</Stat>
             </LifelineInfo>
           </Lifeline>
           <Bloodhound>
             <LegendImg src={bloodhound} />
             <BloodhoundInfo>
               <LegendName>Bloodhound</LegendName>
-              <Stat>Usage 12% KPM 2.1</Stat>
+              <Stat>Usage 11.8% KPM 2.1</Stat>
             </BloodhoundInfo>
           </Bloodhound>
         </TopLegend>
@@ -86,18 +86,14 @@ const MetaDesc = styled.p`
   margin-bottom: 20px;
 `;
 
-const ViewMeta = styled.button`
+const ViewMeta = styled.p`
   height: 40px;
-  width: 175px;
+
   border-radius: 10px;
   border: none;
   font-size: 20px;
-  background-color: #9e1a1a;
   color: white;
   font-family: "roboto";
-  &:focus {
-    border: none;
-  }
 `;
 
 const Wrapper = styled.div`
@@ -116,13 +112,13 @@ const TopLegend = styled.div``;
 const Wraith = styled.div`
   position: absolute;
   top: 584px;
-  left: 42vw;
+  left: 70vw;
 `;
 
 const Lifeline = styled.div`
   position: absolute;
   top: 584px;
-  left: 70vw;
+  left: 42vw;
 `;
 
 const Octane = styled.div`

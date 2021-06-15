@@ -18,7 +18,7 @@ const Footer = () => {
         </Linkedin>
       </div>
       <div>
-        <About>About</About>
+        <About href="/about">About</About>
       </div>
       <div>
         <DevAPI href="https://tracker.gg/developers">Tracker API</DevAPI>
