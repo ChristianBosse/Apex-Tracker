@@ -1,5 +1,3 @@
-> This project is still missing one crucial piece of code and should be fixed within 24 hours. -This message written Monday, June 14, 2021 8:08PM(ADT)
-
 <div align="center">
 <img align="center" width="100" height="100" src="client/src/Media/apexlogo.svg">
 <h1>Apex Legend Tracker</h1>
@@ -78,6 +76,8 @@ After all of the above done, everything is ready! to start the frontend and back
 > Make the website better for the mobile version.
 
 > Add more feature along the way.
+
+> Clean and Optimize the code better.
 
 ---
 
