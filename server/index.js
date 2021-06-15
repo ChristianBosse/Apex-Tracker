@@ -51,4 +51,6 @@ app.get("*", (req, res) => {
   res.status(404).json({ status: 404, message: "This doesn't exist." });
 });
 // Node start our server with yarn start:server and listen on port 4000.
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(process.env.PORT || PORT, () =>
+  console.log(`Listening on port ${PORT}`)
+);
