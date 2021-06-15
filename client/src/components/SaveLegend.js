@@ -28,18 +28,18 @@ const SaveLegend = ({ legend, firstFirearm, secondFirearm }) => {
 
 //style are below
 const SaveLegendBtn = styled.button`
-  position: absolute;
-  top: 700px;
   color: white;
   background-color: #202020;
   border: none;
   padding: 10px 30px;
   font-family: "roboto";
   font-size: 23px;
-  left: 1100px;
-
+  margin-left: 50px;
   &:focus {
     border: none;
+  }
+  &:hover {
+    background-color: #252525;
   }
 `;
 

@@ -50,13 +50,15 @@ const About = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></Video>
-        <Play>
-          If you want to play Apex Legend here is a link to the official
-          website.
-        </Play>
-        <Download href="https://www.ea.com/games/apex-legends">
-          OFFICIAL WEBSITE
-        </Download>
+        <Wrap>
+          <Play>
+            If you want to play Apex Legend here is a link to the official
+            website.
+          </Play>
+          <Download href="https://www.ea.com/games/apex-legends">
+            OFFICIAL WEBSITE
+          </Download>
+        </Wrap>
       </ApexLegend>
     </>
   );
@@ -67,37 +69,43 @@ const Play = styled.p`
   color: white;
   /* font-family: "roboto"; */
   font-size: 30px;
-  position: relative;
-  left: 1030px;
-  bottom: 200px;
+  margin-top: 170px;
+  margin-bottom: 50px;
+`;
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Download = styled.a`
-  position: relative;
   background-color: #da292a;
   border: none;
   padding: 20px 80px;
-  left: 1160px;
-  bottom: 100px;
   color: white;
   font-size: 30px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  max-width: 200px;
 
   &:focus {
     border: none;
   }
+  &:hover {
+    background-color: #da393a;
+  }
 `;
 
 const Video = styled.iframe`
-  position: relative;
-  top: 70px;
-  left: 200px;
+  margin-top: 70px;
 `;
 
 const ApexLegend = styled.div`
   max-width: 100vw;
-  height: 450px;
+  min-height: 450px;
   background: linear-gradient(to right, #541010, #a81b1b);
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 const Head = styled.div`
@@ -108,10 +116,6 @@ const Head = styled.div`
 
 const Wrapper = styled.div`
   max-width: 60vw;
-  /* width: 90vw; */
-  position: relative;
-  bottom: 270px;
-  left: 750px;
 `;
 
 const Title = styled.p`
@@ -126,16 +130,15 @@ const Body = styled.div`
   height: 600px;
   max-width: 100vw;
   background-color: #282828;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 const Picture = styled.img`
   height: 320px;
 
-  /* border: black 2px solid; */
   border-radius: 20%;
-  position: relative;
-  top: 90px;
-  left: 300px;
 `;
 
 const AboutMe = styled.p`

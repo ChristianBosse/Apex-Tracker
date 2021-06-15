@@ -302,10 +302,19 @@ const RandomizerData = () => {
         <LegendText>APEX LEGEND RANDOMIZER</LegendText>
       </RandomizerHeader>
       <LegendRandomizer>
-        <RandomizeBtn onClick={() => setRandomize((prev) => !prev)}>
-          Randomize
-        </RandomizeBtn>
         <LegendNameWrapper>
+          <Wrap>
+            <RandomizeBtn onClick={() => setRandomize((prev) => !prev)}>
+              Randomize
+            </RandomizeBtn>
+            {isAuthenticated && (
+              <SaveLegend
+                legend={legend}
+                firstFirearm={firstFirearm}
+                secondFirearm={secondFirearm}
+              />
+            )}
+          </Wrap>
           <Name>Your Legend</Name>
           <LegendName>{legend}</LegendName>
         </LegendNameWrapper>
@@ -319,13 +328,6 @@ const RandomizerData = () => {
           <SecondaryPic src={secondaryPic} />
         </FirearmWrapper>
       </LegendRandomizer>
-      {isAuthenticated && (
-        <SaveLegend
-          legend={legend}
-          firstFirearm={firstFirearm}
-          secondFirearm={secondFirearm}
-        />
-      )}
     </Wrapper>
   );
 };
@@ -339,6 +341,8 @@ const LegendRandomizer = styled.div`
   align-items: center;
   background-color: #343434;
 `;
+
+const Wrap = styled.div``;
 
 const RandomizerHeader = styled.div`
   height: 80px;
@@ -355,17 +359,19 @@ const LegendText = styled.p`
 `;
 
 const RandomizeBtn = styled.button`
-  position: absolute;
-  top: 700px;
   color: white;
   background-color: #202020;
   border: none;
   padding: 10px 30px;
   font-family: "roboto";
   font-size: 23px;
+  margin-bottom: 244px;
 
   &:focus {
     border: none;
+  }
+  &:hover {
+    background-color: #252525;
   }
 `;
 
