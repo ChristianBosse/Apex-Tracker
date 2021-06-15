@@ -52,7 +52,6 @@ const Search = () => {
           <Logo src={xboxLogo} />
         </Xbox>
         <PlayerSearch
-          // onChange={(e) => setUsername(e.target.value)}
           type="text"
           placeholder={platformText}
           onKeyDown={(ev) => {
