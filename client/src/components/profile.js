@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 import defaultPic from "../Media/default.jpg";
 import Loading from "./Loading";
+import DeleteButton from "./DeleteButton";
 
 const Profile = () => {
   //using Authentication method to show user is signed in
@@ -47,18 +48,7 @@ const Profile = () => {
     mongo();
   }, [reload]);
   //delete user saved randomizer config from mongodb
-  const deleteConfig = (item) => {
-    console.log(item);
-    fetch(`/mongo/delete/${item}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+
   //used to show the box to update username
   const updateUsername = () => {
     setUpdate(true);
@@ -110,13 +100,13 @@ const Profile = () => {
                   <CustomText>Secondary</CustomText>
                 </CustomWrap>
                 <ConfigText>Randomizer saved configuration.</ConfigText>
-                {userProfile.map((e) => {
+                {userProfile.map((item) => {
                   return (
                     <Wrap>
-                      <LegendName>{e.Legend}</LegendName>
-                      <Primary>{e.Primary}</Primary>
-                      <Secondary>{e.Secondary}</Secondary>
-                      <DeleteBtn onClick={deleteConfig}>Delete</DeleteBtn>
+                      <LegendName>{item.Legend}</LegendName>
+                      <Primary>{item.Primary}</Primary>
+                      <Secondary>{item.Secondary}</Secondary>
+                      <DeleteButton item={item} />
                     </Wrap>
                   );
                 })}
@@ -140,13 +130,6 @@ const ConfigText = styled.p`
   font-family: "roboto";
   font-size: 20px;
   text-align: center;
-`;
-
-const DeleteBtn = styled.button`
-  border: none;
-  background-color: #606060;
-  color: white;
-  font-family: "roboto";
 `;
 
 const CustomWrap = styled.div`

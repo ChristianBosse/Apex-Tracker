@@ -33,7 +33,11 @@ const About = () => {
             the time to read this and explore my website and hope you had an
             excellent experience.
           </AboutMe>
-          <AboutMe></AboutMe>
+          <AboutMe>
+            i'm currently looking for a web development role that will use my
+            full-stack skills. if you've enjoyed this project i would love to
+            chat!
+          </AboutMe>
         </Wrapper>
       </Body>
       <ApexLegend>
@@ -103,7 +107,8 @@ const Head = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 900px;
+  max-width: 60vw;
+  /* width: 90vw; */
   position: relative;
   bottom: 270px;
   left: 750px;

@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectID } = require("mongodb");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 const { MONGO_URI } = process.env;
@@ -91,7 +91,7 @@ const DeleteConfig = async (req, res) => {
 
   console.log("connected");
 
-  const users = await db.collection("users").deleteOne({ _id: id });
+  const users = await db.collection("users").deleteOne({ _id: ObjectID(id) });
 
   res.json({ status: 200, data: users });
   console.log(users);
