@@ -25,7 +25,7 @@ const Loading = () => {
 
 //style are below.
 const Wrapper = styled.div`
-  height: 200px;
+  height: 400px;
   max-width: 100vw;
   background-color: #303030;
 `;
