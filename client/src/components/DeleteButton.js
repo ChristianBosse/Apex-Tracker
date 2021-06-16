@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const DeleteButton = ({ item }) => {
+const DeleteButton = ({ item, setReload }) => {
   //   console.log(item._id);
   const removeConfig = () => {
     fetch(`/mongo/delete/${item._id}`, {
@@ -13,6 +13,7 @@ const DeleteButton = ({ item }) => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    setReload((e) => !e);
   };
 
   return <DeleteBtn onClick={removeConfig}>Delete</DeleteBtn>;
@@ -23,6 +24,9 @@ const DeleteBtn = styled.button`
   background-color: #606060;
   color: white;
   font-family: "roboto";
+  &:hover {
+    background-color: #707070;
+  }
 `;
 
 export default DeleteButton;

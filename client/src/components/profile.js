@@ -106,7 +106,7 @@ const Profile = () => {
                       <LegendName>{item.Legend}</LegendName>
                       <Primary>{item.Primary}</Primary>
                       <Secondary>{item.Secondary}</Secondary>
-                      <DeleteButton item={item} />
+                      <DeleteButton setReload={setReload} item={item} />
                     </Wrap>
                   );
                 })}
@@ -197,6 +197,9 @@ const SaveUsername = styled.button`
   top: -25px;
   left: 666px;
   margin-bottom: 59px;
+  &:hover {
+    background-color: #303030;
+  }
 `;
 
 const SetUsername = styled.button`
@@ -210,6 +213,9 @@ const SetUsername = styled.button`
   top: -26px;
   left: 650px;
   margin-bottom: 59px;
+  &:hover {
+    background-color: #303030;
+  }
 `;
 
 const Head = styled.div`
