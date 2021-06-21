@@ -8,8 +8,6 @@ const LifetimeStats = () => {
   //segments of a players Apex Legend Profile.
   const { segments } = playerData;
 
-  console.log(playerData);
-
   return (
     <Wrapper>
       <Lifetime>

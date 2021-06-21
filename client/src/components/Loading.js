@@ -18,7 +18,7 @@ const Loading = () => {
 
   return (
     <Wrapper>
-      <BarLoader color={color} css={override} size={40} loading={loading} />
+      <BarLoader color={color} css={override} size={41} loading={loading} />
     </Wrapper>
   );
 };

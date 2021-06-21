@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const DeleteButton = ({ item, setReload }) => {
-  //   console.log(item._id);
   const removeConfig = () => {
     fetch(`/mongo/delete/${item._id}`, {
       method: "DELETE",
