@@ -3,6 +3,8 @@
 <h1>Apex Legend Tracker</h1>
 </div>
 
+> Demo: Here is a video demo of my site youtu.be/V32mMNy2tH0
+
 > Note: This is my Full-stack project for my final project for my Concordia University Web development Bootcamp. This project took me 7 days to accomplish and there are still some things to do but the heavy lifting is mostly done. This project uses tracker.gg/developers API to track over 13 million players for the game called Apex Legends.
 
 > Note: This project is still under development which means sometimes it might go down for maintenance. But do not worry everything is saved into MongoDB so nothing will be lost.
