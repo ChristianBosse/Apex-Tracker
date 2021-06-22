@@ -3,7 +3,7 @@
 <h1>Apex Legend Tracker</h1>
 </div>
 
-> Demo: Here is a video demo of my site youtu.be/V32mMNy2tH0
+> Demo: Here is a video demo of my site. [Demo](https://youtu.be/V32mMNy2tH0)
 
 > Note: This is my Full-stack project for my final project for my Concordia University Web development Bootcamp. This project took me 7 days to accomplish and there are still some things to do but the heavy lifting is mostly done. This project uses tracker.gg/developers API to track over 13 million players for the game called Apex Legends.
 
